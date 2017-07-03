@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三级联动下拉框</title>
+    <style type="text/css">
+        select{
+            padding: 5px;
+            border-radius: 5px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="date" style="margin-left: 100px;margin-top: 50px;">
+        <select name="year" id="year">
+            <option value="">选择年份</option>
+        </select>
+        <select name="month" id="month">
+            <option value="">选择月份</option>
+        </select>
+        <select id="days" class="day">
+            <option value="">选择日期</option>
+        </select>
+    </div>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="sanjiliandong.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#date").selectDate()
+            
+            $("#days").focusout(function(){
+                var year = $("#year option:selected").html()
+                var month = $("#month option:selected").html()
+                var day = $("#days option:selected").html()
+                console.log(year+month+day)
+            })
+            
+        })
+    </script>
+</body>
+</html>
